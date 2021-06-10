@@ -12,4 +12,5 @@ for i in range(1, len(a) + 1):
             lcs[i][j] = max(lcs[i - 1][j], lcs[i][j - 1])
 
 print(max(max(lcs)))
-print(lcs.index(max(max(lcs))))
+for i in range(len(lcs)):
+    
