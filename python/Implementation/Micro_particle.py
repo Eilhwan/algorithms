@@ -1,3 +1,4 @@
+# 시간초과가 나버림 
 import sys; read = sys.stdin.readline
 def diffuse():
     global arr
@@ -16,17 +17,17 @@ def diffuse():
                     if 0 <= x < len(arr) and 0 <= y < len(arr[0]) and arr[x][y] != -1:
                         arr2[x][y] += pie
                         cnt += 1
-                arr[i][j] -= pie * cnt
-    
-    for i in range(len(arr)):
-        for j in range(len(arr[0])):
-            if arr[i][j] != -1:
-                arr[i][j] += arr2[i][j]
+                arr2[i][j] += arr[i][j] - pie * cnt
+            else:
+                arr2[i][j] += arr[i][j]
+    arr = arr2.
 
 def clean(cleaner):
     global arr
     _up = cleaner[0]
     _down = cleaner[1]
+    arr[_up[0]][_up[1]] = arr[_down[0]][_down[1]] = -1
+    
     _down[1] += 1
     _up[1] += 1
     temp = 0
@@ -87,9 +88,10 @@ for i in range(c):
         break
 
 ans = 0
+temp_list = [[0 for _ in range(c)] for _ in range(r)]
 
 for i in range(t):
-    arr2 = [[0 for _ in range(c)] for _ in range(r)]
+    arr2 = temp_list.copy()
     diffuse()
     clean(cleaner)
 
