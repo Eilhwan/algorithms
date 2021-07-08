@@ -4,14 +4,13 @@ import java.util.ArrayList;
 public class Strings {
     public String[] solution(String s)
     {
-        int p = 0;
+        int p;
         int start = 0;
 
         ArrayList<String> answer = new ArrayList<>();
         ArrayList<String> answer1 = new ArrayList<>();
         for (int i = s.length() - 1; i >= 0; i--)
         {
-            // abcxyxyabc
             p = s.indexOf(s.charAt(i));
             String temp = s.substring(start, p + 1);
             if (s.substring(p + 1, i  + 1).contains(temp))
@@ -39,11 +38,11 @@ public class Strings {
     public static void main(String[] args)
     {
         Strings sa = new Strings();
-        String s = "abcxyqwertyxyabc";
+        String s = "2학년전주환2학년";
         String[] a = sa.solution(s);
         for (String c: a)
         {
-            System.out.println(a.toString());
+            System.out.println(c);
         }
 
     }

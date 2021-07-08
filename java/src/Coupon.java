@@ -11,6 +11,7 @@ public class Coupon {
 
         Arrays.sort(price, Collections.reverseOrder());
         Arrays.sort(discount, Collections.reverseOrder());
+
         int i;
         for (i = 0; i < discounts.length; i++)
         {
@@ -20,13 +21,12 @@ public class Coupon {
         {
             answer += prices[j];
         }
-        System.out.println(answer);
         return answer;
     }
 
     public static void main(String[] args) {
         int[] prices = {13000, 88000, 10000};
-        int[] discounts = {30, 20};
+        int[] discounts = {30, 20, 20};
         Coupon c = new Coupon();
         c.solution(prices, discounts);
     }
