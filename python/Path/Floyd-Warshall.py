@@ -1,13 +1,14 @@
-# 4
-# 7
+# 5
+# 9
 # 1 2 4
+# 1 3 5
 # 1 4 6
 # 2 1 3
 # 2 3 7
 # 3 1 5
 # 3 4 4
 # 4 3 2
-
+# 3 5 1
 INF = 10e9
 
 # 노드의 개수와 간선의 개수
@@ -28,6 +29,7 @@ for k in range(1, n + 1):
 
 for i in range(1, n + 1):
     for j in range(1, n + 1):
-        print(graph[i][j], end=" ")
+        print(graph[i][j] if graph[i][j] != 10e9 else "INF", end="  ")
     print()
+
 
