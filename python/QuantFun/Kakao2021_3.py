@@ -34,7 +34,7 @@ def solution(fees, records):
             f = (left // fees[2]) * fees[3]
 
         res.append(temp + f)
-    print(res)
+
     return res
 
 
