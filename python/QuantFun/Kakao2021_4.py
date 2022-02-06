@@ -23,6 +23,7 @@ def solution(n, info):
                 max_value = ryan_point - apeech_point
 
             return
+
         for i in range(11):
             ryan[i] += 1
             dfs(info, cnt + 1, index)
