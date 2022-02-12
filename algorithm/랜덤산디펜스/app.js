@@ -22,23 +22,26 @@ sectionTimes.fill(0);
 mountainTimes.fill(0);
 
 const mainFunc = setInterval(() => {
-  if (index === 100000) {
-    console.log(sectionTimes);
-    console.log(mountainTimes);
+  if (index === 10) {
+    // console.log(sectionTimes);
+    // console.log(mountainTimes);
 
     clearInterval(mainFunc);
-  } else if (index % 3 !== 0) {
-    console.log("...");
-  } else {
+  } // else if (index % 3 !== 0) {
+  //   console.log("...");
+  // }
+  else {
     let randomNum = Math.floor(Math.random() * 100);
     var goSectionIndex = randomNum % section.length;
     var goSection = data[section[goSectionIndex]];
     let randomNum2 = Math.floor(Math.random() * 100);
     var realIndex = randomNum2 % data[section[goSectionIndex]].length;
 
-    console.log(
-      `우리가 가야 할 산은 ${section[goSectionIndex]} 지역의 ${goSection[realIndex]} 입니다.`
-    );
+    if (section[goSectionIndex] === "수도권") {
+      console.log(
+        `우리가 가야 할 산은 ${section[goSectionIndex]} 지역의 ${goSection[realIndex]} 입니다.`
+      );
+    }
     if (
       section[goSectionIndex] == "강원권" ||
       section[goSectionIndex] == "전남권" ||
@@ -53,7 +56,7 @@ const mainFunc = setInterval(() => {
     }
     mountainTimes[iiv + realIndex] += 1;
   }
-  console.log(index);
+  // console.log(index);
   index++;
 }, 1);
 
