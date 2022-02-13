@@ -1,28 +1,39 @@
+
 def solution(tickets):
-    t = dict()
+    departures = []
     for ticket in tickets:
-        if ticket[0] in t:
-            t[ticket[0]].append(ticket[1])
-        else:
-            t[ticket[0]] = [ticket[1]]
-    for k in t.keys():
-        # 알파벳 역순으로 정렬
-        t[k].sort(reverse=True)
-    print(t)
+        departures.append(ticket[0])
+        departures.append(ticket[1])
 
-    st = ["ICN"]
-    answer = []
+    dic = {e: [] for e in set(departures)}
+    visited = {e: [] for e in set(departures)}
 
-    while st:
-        top = st[-1]
+    for departure, arrival in tickets:
+        dic[departure].append(arrival)
+        visited[departure].append(0)
 
-        if top not in t or len(t[top]) == 0:
-            answer.append(st.pop())
-        else:
-            st.append(t[top][-1])
-            t[top].pop()
+    for ticket in departures:
+        dic[ticket] = sorted(dic[ticket])
+    print(dic)
 
-        print(st)
+    def dfs(cur, res):
 
-    answer.reverse()
+        if cur not in dic:
+            return res
+
+        for i, val in enumerate(dic[cur]):
+            if visited[cur][i] == 0:
+                visited[cur][i] = 1
+                res.append(val)
+                tmp = dfs(val, res)
+                if len(tmp) == len(ticket) + 1:
+                    return tmp
+                visited[cur][i] = 0
+                res.pop()
+        return res
+    answer = dfs("ICN", ["ICN"])
     return answer
+
+
+print(solution([["ICN", "SFO"], ["ICN", "ATL"], [
+      "SFO", "ATL"], ["ATL", "ICN"], ["ATL", "SFO"]]))
