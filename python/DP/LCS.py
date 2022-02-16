@@ -26,4 +26,6 @@ def s():
                 dp[j] = max_dp + 1
     print(max(dp))
     print(s)
+
+
 s()
