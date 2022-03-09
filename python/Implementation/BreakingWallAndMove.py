@@ -33,11 +33,10 @@ def backtracking(point, now, canBreakWall, visit):
                 backtracking([nx, ny], now + 1, False, visit)
                 visit[nx][ny] = 0
                 canBreakWall = True
-            else:
-                return
 
 
-backtracking([0, 0], 0, True, visit)
+visit[0][0] = 1
+backtracking([0, 0], 1, True, visit)
 
 if ans == 10e9:
     print(-1)
