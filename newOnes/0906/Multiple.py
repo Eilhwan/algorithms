@@ -21,3 +21,6 @@ res = recursive(a, b, c)
 
 print(res % c)
 
+# 그냥 pow 쓰자 **은 생각보다 시간이 오래 걸린다.
+
+print(pow(a, b, c))
