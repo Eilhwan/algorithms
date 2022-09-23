@@ -1,11 +1,11 @@
 
 
-graph = input()
+graph = []
 distance = [int(10e9) for _ in range(len(graph))]
 visited = [False for _ in range(len(graph))]
 
 def findMin():
-    minValue = int(10e9)
+    min_value = int(10e9)
     index = -1
 
     for i in range(len(distance)):
@@ -16,19 +16,20 @@ def findMin():
     return index
 
 def daikstra(start):
-    visit[start] = True
+
+    visited[start] = True
     distance[start] = 0
 
     for v in range(len(graph[start])):
         distance[v] = min(distance[v], graph[start][v])
     
-    for i in range(len(distance) - 1)
+    for i in range(len(distance) - 1):
         node = findMin()
         visited[node] = True
 
         for j in range(len(graph[i])):
             cost = graph[i][j]
-            distance[v] = min(distance[j], distance[i] + cost)
+            distance[j] = min(distance[j], distance[i] + cost)
             
 
 daikstra(start=0)
