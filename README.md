@@ -8,3 +8,7 @@ restart #2
 
 2022.08.23
 MIG
+
+2022.09.24
+macbook test
+
