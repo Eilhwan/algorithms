@@ -11,5 +11,5 @@ for _ in range(T):
             break
         ans[i] = div
         c = mod
-    print(" ".join(map(str, ans))[:-2])
+    print(" ".join(map(str, ans)))
         
