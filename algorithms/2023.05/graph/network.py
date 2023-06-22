@@ -11,7 +11,7 @@
 # 5 6 8
 import sys; input = sys.stdin.readline
 
-def network(graph, m):
+def network(graph, n, m):
     parent = [i for i in range(m + 1)]
 
     def find(x):
@@ -48,4 +48,4 @@ for _ in range(m):
     a, b, c = map(int, input().split()) # a to b c는 코스트
     graph.append([a, b, c])
 
-print(network(graph, m))
+print(network(graph, n, m))
