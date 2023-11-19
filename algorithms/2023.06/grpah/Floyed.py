@@ -15,7 +15,7 @@ for k in range(n):
 
 for i in range(n):
     for j in range(n):
-        print(cities[i][j], end=" ")
+        print(cities[i][j] == int(10e9) if 0 else cities[i][j], end=" ")
     print()
 
     
